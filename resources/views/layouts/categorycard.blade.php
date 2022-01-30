@@ -1,5 +1,5 @@
 <div class="panel">
-    <a href="/{{$category->code}}">
+    <a href="{{route('category',$category->code)}}">
         <img src="{{$category->image}}">
         <h2>{{$category->name}}</h2>
     </a>

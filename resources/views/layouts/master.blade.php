@@ -22,27 +22,27 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{route('index')}}">Все товары</a></li>
-                <li><a href="/categories">Категории</a>
+                <li><a href="{{route('categories')}}">Категории</a>
                 </li>
-                <li><a href="/basket">В корзину</a></li>
-                <li><a href="/reset">Сбросить проект в начальное состояние</a></li>
-                <li><a href="/locale/en">en</a></li>
+                <li><a href="{{route('basket')}}">В корзину</a></li>
+{{--                <li><a href="/reset">Сбросить проект в начальное состояние</a></li>--}}
+{{--                <li><a href="/locale/en">en</a></li>--}}
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">₽<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/currency/RUB">₽</a></li>
-                        <li><a href="/currency/USD">$</a></li>
-                        <li><a href="/currency/EUR">€</a></li>
-                    </ul>
-                </li>
+{{--                <li class="dropdown">--}}
+{{--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"--}}
+{{--                       aria-expanded="false">₽<span class="caret"></span></a>--}}
+{{--                    <ul class="dropdown-menu">--}}
+{{--                        <li><a href="/currency/RUB">₽</a></li>--}}
+{{--                        <li><a href="/currency/USD">$</a></li>--}}
+{{--                        <li><a href="/currency/EUR">€</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login">Войти</a></li>
+{{--            <ul class="nav navbar-nav navbar-right">--}}
+{{--                <li><a href="/login">Войти</a></li>--}}
 
-            </ul>
+{{--            </ul>--}}
         </div>
     </div>
 </nav>

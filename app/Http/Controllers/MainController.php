@@ -23,7 +23,8 @@ class MainController extends Controller
     public function category($code)
     {
         $category = Category::where('code', $code)->first();
-        return view('category', compact('category'));
+        $products = Product::all();
+        return view('category', compact('category','products'));
     }
 
     public function basket()
