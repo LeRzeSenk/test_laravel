@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('title','Товар')
 @section('content')
-    <h1>{{$name}}</h1>
+    <h1>{{$product->name}}</h1>
     <h2>{{$category}}</h2>
-    <p>Цена: <b>89990 ₽</b></p>
-    <img src="http://internet-shop.tmweb.ru/storage/products/iphone_x_silver.jpg">
-    <p>Отличный продвинутый телефон с памятью на 256 gb</p>
+    <p>Цена: <b>{{$product->price}} ₽</b></p>
+    <img src="{{$product->image}}">
+    <p>{{$product->description}}</p>
 
-    <form action="http://internet-shop.tmweb.ru/basket/add/2" method="POST">
+    <form action="/basket/add/2" method="POST">
         <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
 
         @csrf       </form>

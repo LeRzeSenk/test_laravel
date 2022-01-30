@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title',$category)
+@section('title',$category->name)
 @section('content')
-    <h1>{{$category}}</h1>
+    <h1>{{$category->name}}</h1>
     @php $test =[1,2,3] @endphp
     @foreach($test as $product)
         @include('layouts.card')
