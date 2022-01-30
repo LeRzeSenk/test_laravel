@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title','Товар')
 @section('content')
-    <h1>iPhone X 256GB</h1>
-    <h2>Мобильные телефоны</h2>
+    <h1>{{$name}}</h1>
+    <h2>{{$category}}</h2>
     <p>Цена: <b>89990 ₽</b></p>
     <img src="http://internet-shop.tmweb.ru/storage/products/iphone_x_silver.jpg">
     <p>Отличный продвинутый телефон с памятью на 256 gb</p>

@@ -9,10 +9,11 @@
             <h3>iPhone X 256GB</h3>
             <p>89990 ₽</p>
             <p>
-            </p><form action="/basket/add/2" method="POST">
+            </p>
+            <form action="/basket/add/2" method="POST">
                 <button type="submit" class="btn btn-primary" role="button">В корзину</button>
                 <a href="/mobiles/iphone_x_256" class="btn btn-default" role="button">Подробнее</a>
-                <input type="hidden" name="_token" value="xe3aU34I3ux4k5b70FnAhiQiEPJykKNEHUgvxvse">            </form>
+                @csrf</form>
             <p></p>
         </div>
     </div>
