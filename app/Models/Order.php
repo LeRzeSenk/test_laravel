@@ -9,13 +9,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function basket()
-    {
-        return view('basket');
-    }
-
-    public function order()
-    {
-        return view('order');
+    public function products(){
+        return $this->belongsToMany(Product::class);
     }
 }
