@@ -15,4 +15,8 @@ class BasketController extends Controller
     {
         return view('order');
     }
+
+    public function add(){
+        return view('basket');
+    }
 }

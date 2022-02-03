@@ -7,7 +7,7 @@
     <img src="{{$product->image}}">
     <p>{{$product->description}}</p>
 
-    <form action="/basket/add/2" method="POST">
+    <form action="{{route('add-basket',$product)}}" method="POST">
         <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
 
         @csrf       </form>
