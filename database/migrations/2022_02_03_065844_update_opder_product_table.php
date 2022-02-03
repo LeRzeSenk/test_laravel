@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateOpderProductTable extends Migration
+class CreateOrderProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class UpdateOpderProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_product', function (Blueprint $table) {
-            $table->id();
-            $table->integer('order_id');
-            $table->integer('product_id');
-            $table->timestamps();
+        Schema::table('order_product', function (Blueprint $table) {
+            $table->integer('count')->default(1);
         });
     }
 
@@ -28,6 +25,8 @@ class UpdateOpderProductTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('order_product', function (Blueprint $table) {
+            $table->dropColumn('count');
+        });
     }
 }
