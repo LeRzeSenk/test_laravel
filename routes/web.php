@@ -9,6 +9,7 @@ Route::get('/categories', 'MainController@categories')->name('categories');
 
 Route::get('/basket', 'BasketController@basket')->name('basket');
 Route::get('/basket/order', 'BasketController@order')->name('order');
+Route::get('/basket/order', 'BasketController@orderConfirm')->name('order-confirm');
 Route::post('/basket/add/{id}', 'BasketController@add')->name('add-basket');
 Route::post('/basket/remove/{id}', 'BasketController@remove')->name('remove-basket');
 
