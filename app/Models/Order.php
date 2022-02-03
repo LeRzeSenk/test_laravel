@@ -12,4 +12,12 @@ class Order extends Model
     public function products(){
         return $this->belongsToMany(Product::class);
     }
+
+    public function orderSum(){
+        $sum = 0;
+        foreach ($this->products as $product){
+            $sum +=$product->price;
+        }
+        return $sum;
+    }
 }

@@ -14,16 +14,18 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($order->products as $product)
            @include('layouts.basketproduct')
+            @endforeach
             <tr>
                 <td colspan="3">Общая стоимость:</td>
-                <td>89990 ₽</td>
+                <td>{{$order->orderSum()}} ₽</td>
             </tr>
             </tbody>
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="/basket/order">Оформить заказ</a>
+            <a type="button" class="btn btn-success" href="{{route('order')}}">Оформить заказ</a>
         </div>
     </div>
 @endsection
