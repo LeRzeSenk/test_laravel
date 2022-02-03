@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('title','Корзина')
 @section('content')
+    @if (session()->has('success'))
+        <p class="alert alert-success">{{session()->get('success')}}</p>
+    @endif
+    @if (session()->has('danger'))
+        <p class="alert alert-danger">{{session()->get('danger')}}</p>
+    @endif
     <h1>Корзина</h1>
     <p>Оформление заказа</p>
     <div class="panel">

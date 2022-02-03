@@ -27,9 +27,17 @@
                         <br>
                         <br>
                         <div class="form-group">
-                            <label for="name" class="control-label col-lg-offset-3 col-lg-2">Email: </label>
+                            <label for="email" class="control-label col-lg-offset-3 col-lg-2">Email: </label>
                             <div class="col-lg-4">
                                 <input type="text" name="email" id="email" value="" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="comment" class="control-label col-lg-offset-3 col-lg-2">Ваши пожелания: </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="comment" id="comment" value="" class="form-control">
                             </div>
                         </div>
                     </div>

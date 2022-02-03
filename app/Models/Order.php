@@ -23,4 +23,20 @@ class Order extends Model
     public function orderSumFormat(){
         return number_format($this->orderSum(), 2, '.', ' ');
     }
+
+    public function saveOrder($name,$phone,$email,$comment){
+        if ($this->status == 0) {
+            $this->name = $name;
+            $this->number = $phone;
+            $this->email = $email;
+            $this->comment = $comment;
+            $this->status = 1;
+            $this->save();
+
+            session()->forget('orderId');
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

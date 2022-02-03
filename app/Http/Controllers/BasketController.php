@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
@@ -11,7 +12,7 @@ class BasketController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            $order = Order::create()->id;
+            $order = Order::create();
             session(['orderId' => $order->id]);
         } else {
             $order = Order::find($orderId);
@@ -26,14 +27,22 @@ class BasketController extends Controller
             return redirect()->route('index');
         } else{
             $order = Order::find($orderId);
+            return view('order',compact('order'));
         }
-
-        return view('order',compact('order'));
     }
 
-    public function orderConfirm()
+    public function orderConfirm(Request $request)
     {
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        } else{
+            $order = Order::find($orderId);
+            $success = $order->saveOrder($request->name,$request->phone,$request->email,$request->comment);
+        }
+            session()->flash('success',$success);
 
+        return redirect()->route('index');
     }
 
     public function remove($productId)
@@ -53,7 +62,7 @@ class BasketController extends Controller
                 $PivotRaw->update();
             }
         }
-
+        session()->flash('danger','Товар убран '.Product::find($productId)->name);
         return redirect()->route('basket');
     }
 
@@ -61,7 +70,7 @@ class BasketController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            $order = Order::create()->id;
+            $order = Order::create();
             session(['orderId' => $order->id]);
         } else {
             $order = Order::find($orderId);
@@ -74,7 +83,7 @@ class BasketController extends Controller
         }else{
             $order->products()->attach($productId);
         }
-
+        session()->flash('success','Товар добавлен '.Product::find($productId)->name);
         return redirect()->route('basket');
     }
 }
