@@ -19,7 +19,7 @@
             @endforeach
             <tr>
                 <td colspan="3">Общая стоимость:</td>
-                <td>{{$order->orderSum()}} ₽</td>
+                <td>{{$order->orderSumFormat()}} ₽</td>
             </tr>
             </tbody>
         </table>

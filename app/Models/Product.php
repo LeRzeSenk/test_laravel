@@ -12,4 +12,16 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function countSum(){
+        $sum = $this->price * $this->pivot->count;
+        return $sum;
+    }
+
+    public function priceFormat(){
+        return number_format($this->price, 2, '.', ' ');
+    }
+    public function countPriceFormat(){
+        return number_format($this->countSum(), 2, '.', ' ');
+    }
 }

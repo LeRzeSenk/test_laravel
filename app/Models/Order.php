@@ -10,14 +10,17 @@ class Order extends Model
     use HasFactory;
 
     public function products(){
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
 
     public function orderSum(){
         $sum = 0;
         foreach ($this->products as $product){
-            $sum +=$product->price;
+            $sum +=$product->countSum();
         }
         return $sum;
+    }
+    public function orderSumFormat(){
+        return number_format($this->orderSum(), 2, '.', ' ');
     }
 }

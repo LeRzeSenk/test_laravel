@@ -3,8 +3,8 @@
 @section('content')
     <h1>{{$product->name}}</h1>
     <h2>{{$product->category->name}}</h2>
-    <p>Цена: <b>{{$product->price}} ₽</b></p>
-    <img src="{{$product->image}}">
+    <p>Цена: <b>{{$product->priceFormat()}} ₽</b></p>
+    <img src="{{$product->image}}" alt="{{$product->name}}">
     <p>{{$product->description}}</p>
 
     <form action="{{route('add-basket',$product)}}" method="POST">

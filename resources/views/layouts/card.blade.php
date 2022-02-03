@@ -3,7 +3,7 @@
         <img src="{{$product->image}}" alt="{{$product->name}}">
         <div class="caption">
             <h3>{{$product->name}}</h3>
-            <p>{{$product->price}} ₽</p>
+            <p>{{$product->priceFormat()}} ₽</p>
             <p>{{$product->category->name}}</p>
             <p>
             </p><form action="{{route('add-basket',$product)}}" method="POST">
