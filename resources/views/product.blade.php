@@ -2,7 +2,7 @@
 @section('title',$product->name)
 @section('content')
     <h1>{{$product->name}}</h1>
-    <h2>{{$category}}</h2>
+    <h2>{{$product->category->name}}</h2>
     <p>Цена: <b>{{$product->price}} ₽</b></p>
     <img src="{{$product->image}}">
     <p>{{$product->description}}</p>

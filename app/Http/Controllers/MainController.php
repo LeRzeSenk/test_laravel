@@ -23,23 +23,12 @@ class MainController extends Controller
     public function category($code)
     {
         $category = Category::where('code', $code)->first();
-        $products = Product::all();
-        return view('category', compact('category','products'));
-    }
-
-    public function basket()
-    {
-        return view('basket');
-    }
-
-    public function order()
-    {
-        return view('order');
+        return view('category', compact('category'));
     }
 
     public function product($category, $code)
     {
         $product = Product::where('code', $code)->first();
-        return view('product', compact('product','category'));
+        return view('product', compact('product'));
     }
 }
