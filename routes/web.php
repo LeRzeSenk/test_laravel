@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
 
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
 
 Route::get('/', 'MainController@index')->name('index');
 Route::get('/categories', 'MainController@categories')->name('categories');
@@ -16,3 +24,7 @@ Route::post('/basket/remove/{id}', 'BasketController@remove')->name('remove-bask
 
 Route::get('/{category}', 'MainController@category')->name('category');
 Route::get('/{category}/{product}', 'MainController@product')->name('product');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
