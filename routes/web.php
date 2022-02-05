@@ -1,13 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 Auth::routes([
     'reset' => false,
     'confirm' => false,
     'verify' => false,
 ]);
+Route::group(['middleware' => 'auth',
+              'namespace' => 'Admin'],function (){
+    Route::get('/orders', 'OrderController@index')->name('orders');
+    Route::get('/home', 'OrderController@index')->name('home');
+    Route::get('/orders/delete/{id}', 'OrderController@deleteOrder')->name('delete-order');
+});
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
 
@@ -27,4 +33,4 @@ Route::get('/{category}/{product}', 'MainController@product')->name('product');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('home');
