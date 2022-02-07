@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes([
     'reset' => false,
@@ -9,9 +10,11 @@ Auth::routes([
 ]);
 Route::group(['middleware' => 'auth',
               'namespace' => 'Admin'],function (){
-    Route::get('/orders', 'OrderController@index')->name('orders');
-    Route::get('/home', 'OrderController@index')->name('home');
-    Route::get('/orders/delete/{id}', 'OrderController@deleteOrder')->name('delete-order');
+    Route::group(['middleware' => 'is.admin'],function (){
+        Route::get('/orders', 'OrderController@index')->name('orders');
+        Route::get('/home', 'OrderController@index')->name('home');
+        Route::get('/orders/delete/{id}', 'OrderController@deleteOrder')->name('delete-order');
+    });
 });
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');

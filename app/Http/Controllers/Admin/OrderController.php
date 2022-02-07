@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use function view;
 
 class OrderController extends Controller
@@ -25,8 +26,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('status',1)->get();
-        return view('admin.orders',compact('orders'));
+        $user = Auth::user();
+        if ($user->isAdmin()) {
+            $orders = Order::where('status',1)->get();
+            return view('admin.orders',compact('orders'));
+        } else{
+            return redirect()->route('index');
+        }
     }
     public function deleteOrder($id){
         $order=Order::find($id);

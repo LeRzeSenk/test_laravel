@@ -44,7 +44,7 @@
                                 <li><a href="{{route('login')}}">Войти</a></li>
                             @endguest
                                @auth()
-                                   <li><a href="{{route('home')}}">Панель Администратора</a></li>
+                                   <li><a href="{{route('orders')}}">Панель Администратора</a></li>
                                    <li><a href="{{route('logout')}}">Выйти</a></li>
                                @endauth
 
@@ -55,6 +55,9 @@
 
 <div class="container">
     <div class="starter-template">
+        @if (session()->has('warning'))
+            <p class="alert alert-danger">{{session()->get('warning')}}</p>
+        @endif
         @yield('content')
     </div>
 </div>
