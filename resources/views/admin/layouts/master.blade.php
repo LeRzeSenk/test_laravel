@@ -29,6 +29,9 @@
 
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li><a href="{{route('categories.index')}}">Категории</a></li>
+                    <li><a href="#">Товары</a></li>
+                    <li><a href="{{route('orders')}}">Заказы</a></li>
                 </ul>
 
             </div>
