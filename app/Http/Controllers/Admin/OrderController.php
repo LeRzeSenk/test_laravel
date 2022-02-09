@@ -40,4 +40,9 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->route('orders');
     }
+
+    public function openOrder($orderId){
+        $order = Order::find($orderId);
+        return view('admin.open_order',compact('order'));
+    }
 }
