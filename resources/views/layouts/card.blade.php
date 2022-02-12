@@ -1,6 +1,6 @@
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-        <img src="{{$product->image}}" alt="{{$product->name}}">
+        <img src="{{Storage::url($product->image)}}" alt="{{$product->name}}">
         <div class="caption">
             <h3>{{$product->name}}</h3>
             <p>{{$product->priceFormat()}} ₽</p>

@@ -37,7 +37,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        $path = $request->file('image')->store('img/categories');
+        $params = $request->all();
+        $params['image'] = $path;
+        Category::create($params);
         return redirect()->route('categories.index');
     }
 
@@ -72,7 +75,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update($request->all());
+        $path = $request->file('image')->store('img/categories');
+        $params = $request->all();
+        $params['image'] = $path;
+        $category->update($params);
         return redirect()->route('categories.index');
     }
 

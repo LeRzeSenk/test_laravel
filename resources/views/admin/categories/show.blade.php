@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>Картинка</td>
-                    <td><img src="{{$category->image}}" height="240px"></td>
+                    <td><img src="{{Storage::url($category->image)}}" height="240px"></td>
                 </tr>
                 <tr>
                     <td>Кол-во товаров</td>
