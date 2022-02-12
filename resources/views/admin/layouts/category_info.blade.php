@@ -3,8 +3,14 @@
     <td>{{$category->code}}</td>
     <td>{{$category->name}}</td>
     <td>
-    <a type="button" class="btn btn-success" href="{{route('categories.show',$category)}}">Открыть</a>
-    <a type="button" class="btn btn-warning" href="{{route('categories.edit',$category)}}">Редактировать</a>
-    <a type="button" class="btn btn-danger" href="{{route('categories.destroy',$category)}}">Удалить</a>
+    <div class="btn-group" role="group">
+        <form action="{{route('categories.destroy',$category)}}" method="POST">
+            <a type="button" class="btn btn-success" href="{{route('categories.show',$category)}}">Открыть</a>
+            <a type="button" class="btn btn-warning" href="{{route('categories.edit',$category)}}">Редактировать</a>
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="Удалить">
+        </form>
+    </div>
     </td>
 </tr>

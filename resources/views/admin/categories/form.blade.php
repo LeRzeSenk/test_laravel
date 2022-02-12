@@ -9,7 +9,7 @@
 @section('content')
     <div class="col-md-12">
         @isset($category)
-            <h1>Редактировать Категорию <b>{{ $category->name }}</b></h1>
+            <h1>Редактировать Категорию: <b>{{ $category->name }}</b></h1>
         @else
             <h1>Добавить Категорию</h1>
         @endisset
@@ -64,7 +64,8 @@
                 </div>
             <br>
             @csrf
-                <button class="btn btn-success">Сохранить</button>
+                <button class="btn btn-success">Сохранить</button><a style="margin: 0 10px 0 10px" type="button" class="btn btn-warning" href="{{route('categories.index')}}">Назад</a>
         </form>
+
     </div>
 @endsection
