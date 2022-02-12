@@ -47,8 +47,11 @@
                         <div class="col-sm-6">
                             <select name="category_id" id="category_id" class="form-control">
                                 @foreach($categories as $category)
-                                <option @isset($product) @if($product->category->id == $category->id) selected @endif @endisset
-                                value="{{$category->id}}">{{$category->name}}</option>
+                                <option
+                                    @isset($product)
+                                        @if($product->category->id == $category->id) selected @endif
+                                    @endisset
+                                        value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
